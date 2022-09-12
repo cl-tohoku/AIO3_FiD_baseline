@@ -1,0 +1,11 @@
+# data
+WIKI_FILE=datasets/wiki/jawiki-20220404-c400-large.tsv.gz
+TRAIN_FILE=datasets/aio_02_train.jsonl
+DEV_FILE=datasets/aio_02_dev_v1.0.jsonl
+TEST_FILE=datasets/aio_03_test_unlabeled.jsonl
+
+# dest (To create models, embeddings, etc under $DIR_DPR/$NAME)
+DIR_DPR=model
+
+# result (To create results under $DIR_RESULT/$NAME)
+DIR_RESULT=result

@@ -1,0 +1,11 @@
+**/__pycache__/
+**/outputs/
+**/work/
+**/tmp/
+**/lib/
+scripts/abci
+
+.python-version
+**/*debug.json
+
+log_*

@@ -1,0 +1,23 @@
+JaQuAD:
+  doc: https://github.com/SkelterLabsInc/JaQuAD
+  arxiv: https://arxiv.org/abs/2202.01764
+  path: JaQuAD.load_jaquad
+  class: JaQuAD 
+
+JaqketAIO:
+  download: "bash prepro/JaqketAIO/download_data.sh datasets"
+  path: JaqketAIO.load_jaqketaio2
+  class: JaqketAIO
+  data:
+    train: datasets/aio/abc_01-12_retriever.json.gz
+    dev: datasets/aio/aio_01_dev_retriever.json.gz
+    test: datasets/aio/aio_01_test_retriever.json.gz
+    unused: datasets/aio/aio_01_unused_retriever.json.gz
+
+DprRetrieved:
+  path: JaqketAIO.load_jaqketaio2
+  class: JaqketAIO
+  data:
+    train: retrievers/AIO3_DPR/result/baseline/retrieved/train_aio_pt.json
+    dev: retrievers/AIO3_DPR/result/baseline/retrieved/dev_aio_pt.json
+    test: retrievers/AIO3_DPR/result/baseline/retrieved/test_aio_pt.json
