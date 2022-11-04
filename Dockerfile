@@ -90,4 +90,9 @@ ARG TRANSFORMERS_BASE_MODEL_NAME="cl-tohoku/bert-base-japanese-whole-word-maskin
 RUN python -c "from transformers import BertModel; BertModel.from_pretrained('${TRANSFORMERS_BASE_MODEL_NAME}')"
 RUN python -c "from transformers import BertJapaneseTokenizer; BertJapaneseTokenizer.from_pretrained('${TRANSFORMERS_BASE_MODEL_NAME}')"
 
-WORKDIR /code/AIO3_FiD_baseline
+WORKDIR /app
+COPY generators/ /app/generators/
+COPY prepro/ /app/prepro/
+COPY retrievers/ /app/retrievers/
+COPY datasets.yml /app/.
+COPY submission.sh /app/.

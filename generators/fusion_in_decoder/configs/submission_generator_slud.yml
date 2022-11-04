@@ -1,15 +1,15 @@
 # experiment
-name: "fusion-in-decoder_test"
+name: "fusion-in-decoder_submission"
 seed: 2022
 
 # dataset
 train_data: "/app/datasets/fusion_in_decoder/DprRetrieved/train.jsonl"
-eval_data: "/app/datasets/fusion_in_decoder/DprRetrieved/test.jsonl"
-checkpoint_dir: "models_and_results/baseline"
+eval_data: "/app/datasets/fusion_in_decoder/Submission/test.jsonl"
+checkpoint_dir: "/app/generators/fusion_in_decoder/models_and_results/baseline"
 
-# model 
+# model
 model_name_or_path: "sonoisa/t5-base-japanese"
-model_path: "models_and_results/baseline"
+model_path: "/app/generators/fusion_in_decoder/models_and_results/baseline"
 n_context: 60
 text_maxlength: 250
 

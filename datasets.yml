@@ -21,3 +21,9 @@ DprRetrieved:
     train: retrievers/AIO3_DPR/result/baseline/retrieved/train_aio_pt.json
     dev: retrievers/AIO3_DPR/result/baseline/retrieved/dev_aio_pt.json
     test: retrievers/AIO3_DPR/result/baseline/retrieved/test_aio_pt.json
+
+Submission:
+  path: JaqketAIO.load_jaqketaio2
+  class: JaqketAIO
+  data:
+    test: retrievers/AIO3_DPR/result/baseline/submit/test_aio_pt.json

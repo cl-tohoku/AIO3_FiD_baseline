@@ -73,4 +73,4 @@ RUN pip install --no-cache-dir \
         "cytoolz==0.12.0" \
         "transformers==4.12.5"
 
-WORKDIR /code/AIO3_FiD_baseline
+WORKDIR /app

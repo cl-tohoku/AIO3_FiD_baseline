@@ -4,6 +4,7 @@
 
 ## 更新履歴
 - 2022/09/12: 本ベースラインを公開しました。
+- 2022/11/05: Dockerイメージの投稿要件に含まれる`~/submission.sh`を追加しました。
 
 
 ## 目次
@@ -27,8 +28,9 @@
     - Reader
       - 学習済みモデルのダウンロード
       - 解答生成と評価
+- submission.sh について
 - 謝辞・ライセンス
-    
+
 
 
 # Open-Domain QA
@@ -85,7 +87,7 @@ $ docker container run \
       --interactive \
       --tty \
       --gpus all \
-      --mount type=bind,src=$(pwd),dst=/code/AIO3_FiD_baseline \
+      --mount type=bind,src=$(pwd),dst=/app \
       aio3_fid:latest \
       bash
 ```
@@ -227,10 +229,10 @@ Fusion-in-Decoder(FiD) は、質問と各関連文書を連結したものをエ
 
 ### 作成
 
-前節のRetrieverによる関連文書抽出結果を任意の場所に保存した方は、[AIO3_FiD_baseline/datasets.yml](datasets.yml) ファイルを編集して下さい。
+前節のRetrieverによる関連文書抽出結果を任意の場所に保存した方は、[/app/datasets.yml](datasets.yml) ファイルを編集して下さい。
 
 ```bash
-$ cd /code/AIO3_FiD_baseline
+$ cd /app
 $ vim datasets.yml
 ```
 
@@ -257,7 +259,7 @@ $ python prepro/convert_dataset.py DprRetrieved fusion_in_decoder
 変換後のデータセットは次のディレクトリに保存されます。
 
 ```yaml
-/code/AIO3_FiD_baseline/datasets/fusion_in_decoder/DprRetrieved/*.jsonl
+/app/datasets/fusion_in_decoder/DprRetrieved/*.jsonl
 ```
 
 ### 形式
@@ -374,6 +376,24 @@ __Accuracy__
 {"qid": "AIO02-1004", "prediction": "ダブルデシジョン"}
 {"qid": "AIO02-1005", "prediction": "デュース"}
 ```
+
+
+
+## submission.sh について
+最終的に提出を行う Docker イメージ内で、与えられた質問データに対して推論を行うスクリプトです。
+
+提出する Docker イメージの要件については、[こちら](https://sites.google.com/view/project-aio/competition2/how-to-use-leaderboard) をご参照ください。
+
+`submission.sh`は、以下の内容で構成されています：
+- `BIENCODER_FILE`：Retriever(DPR) モデルファイルのパス
+- `EMBEDDING_FILE`：文書エンベッディングファイルのパス
+- `PASSAGES_FILE`：文書集合のパス
+- `READER_CONFIG_FILE`：Reader(FiD) モデルを動かすための設定ファイルのパス
+- `RETRIEVER_OUTPUT_FILE`：Retriever(DPR) モデルによる文書抽出結果ファイルの出力先
+- `READER_OUTPUT_FILE`：Reader(FiD) モデルが出力した解答ファイルへのパス。[解答生成](#解答生成)の節を参照してください。
+
+Reader(FiD) モデルファイルのパスを指定する必要がある場合は、`READER_CONFIG_FILE`内の`model_path`にて指定してください。
+
 
 
 ## 謝辞・ライセンス

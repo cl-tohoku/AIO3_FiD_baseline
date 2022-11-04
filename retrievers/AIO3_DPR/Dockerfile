@@ -28,4 +28,4 @@ RUN python -c "from transformers import BertModel; BertModel.from_pretrained('${
 RUN python -c "from transformers import BertJapaneseTokenizer; BertJapaneseTokenizer.from_pretrained('${TRANSFORMERS_BASE_MODEL_NAME}')"
 ENV TRANSFORMERS_OFFLINE=1
 
-WORKDIR /code/AIO3_FiD_baseline/retrievers/AIO3_DPR
+WORKDIR /app/retrievers/AIO3_DPR

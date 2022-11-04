@@ -113,7 +113,7 @@ $ docker container run \
       --interactive \
       --tty \
       --gpus all \
-      --mount type=bind,src=$(pwd),dst=/code/AIO3_FiD_baseline/retrievers/AIO3_DPR \
+      --mount type=bind,src=$(pwd),dst=/app/retrievers/AIO3_DPR \
       aio3_fid:dpr \
       bash
 ```

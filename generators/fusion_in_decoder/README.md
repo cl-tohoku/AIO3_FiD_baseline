@@ -20,7 +20,7 @@ $ docker container run \
       --interactive \
       --tty \
       --gpus all \
-      --mount type=bind,src=$(pwd),dst=/code/AIO3_FiD_baseline \
+      --mount type=bind,src=$(pwd),dst=/app \
       aio3_fid:fid \
       bash
 ```
@@ -105,8 +105,8 @@ $ vim configs/train_generator_slud.yml
 - name: "fusion-in-decoder"
 
 # model
-- train_data: "/code/AIO3_FiD_baseline/datasets/fusion_in_decoder/DprRetrieved/train.jsonl"
-- eval_data: "/code/AIO3_FiD_baseline/datasets/fusion_in_decoder/DprRetrieved/dev.jsonl"
+- train_data: "/app/datasets/fusion_in_decoder/DprRetrieved/train.jsonl"
+- eval_data: "/app/datasets/fusion_in_decoder/DprRetrieved/dev.jsonl"
 - checkpoint_dir: "<checkpoint_dir>"
 
 # model 
@@ -138,8 +138,8 @@ $ vim configs/test_generator_slud.yml
 - name: "fusion-in-decoder_test"
 
 # model
-- train_data: "/code/AIO3_FiD_baseline/datasets/fusion_in_decoder/DprRetrieved/train.jsonl"
-- eval_data: "/code/AIO3_FiD_baseline/datasets/fusion_in_decoder/DprRetrieved/test.jsonl"
+- train_data: "/app/datasets/fusion_in_decoder/DprRetrieved/train.jsonl"
+- eval_data: "/app/datasets/fusion_in_decoder/DprRetrieved/test.jsonl"
 - checkpoint_dir: "<checkpoint_dir>"
 
 # model 
