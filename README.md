@@ -71,6 +71,8 @@ $ cd AIO3_FiD_baseline
 # 生成型 Reader
 - generators/:
   - fusion_in_decoder/:                FiD モジュール
+  
+- submission.sh:                       提出用推論スクリプト
 ```
 
 
