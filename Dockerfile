@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM nvcr.io/nvidia/pytorch:21.06-py3
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
@@ -72,7 +72,6 @@ RUN pip install --no-cache-dir \
         "tokenizers==0.10.1" \
         "toml==0.10.2" \
         "toolz==0.12.0" \
-        "torch==1.9.1" \
         "tqdm==4.62.3" \
         "traitlets==5.3.0" \
         "typing-extensions==4.3.0" \

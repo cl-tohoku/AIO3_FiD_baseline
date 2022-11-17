@@ -5,7 +5,7 @@
 ## 更新履歴
 - 2022/09/12: 本ベースラインを公開しました。
 - 2022/11/05: Dockerイメージの投稿要件に含まれる`~/submission.sh`を追加しました。
-- 2022/11/17: Dockerfileに、トークナイザの事前ダウンロードコードを追記しました。
+- 2022/11/17: Dockerfileに、トークナイザの事前ダウンロードコードを追記しました。また、ベースイメージを変更しました。
 
 
 ## 目次
@@ -72,6 +72,8 @@ $ cd AIO3_FiD_baseline
 # 生成型 Reader
 - generators/:
   - fusion_in_decoder/:                FiD モジュール
+  
+- submission.sh:                       システム最終提出用スクリプト
 ```
 
 
@@ -91,13 +93,6 @@ $ docker container run \
       --mount type=bind,src=$(pwd),dst=/app \
       aio3_fid:latest \
       bash
-```
-
-- 次に、cuda バージョンに合わせて、以下より torch v1.9.1 をインストールして下さい。
-  - [https://pytorch.org](https://pytorch.org)
-```bash
-# コマンド実行例（CUDA 11.1 で pip を使用する場合）
-$ pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
 
