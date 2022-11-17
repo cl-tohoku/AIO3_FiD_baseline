@@ -89,6 +89,9 @@ RUN pip install --no-cache-dir \
 ARG TRANSFORMERS_BASE_MODEL_NAME="cl-tohoku/bert-base-japanese-whole-word-masking"
 RUN python -c "from transformers import BertModel; BertModel.from_pretrained('${TRANSFORMERS_BASE_MODEL_NAME}')"
 RUN python -c "from transformers import BertJapaneseTokenizer; BertJapaneseTokenizer.from_pretrained('${TRANSFORMERS_BASE_MODEL_NAME}')"
+ARG T5_TOKENIZER_NAME="sonoisa/t5-base-japanese"
+RUN python -c "from transformers import T5Tokenizer; T5Tokenizer.from_pretrained('${T5_TOKENIZER_NAME}')"
+# ENV TRANSFORMERS_OFFLINE=1
 
 WORKDIR /app
 COPY generators/ /app/generators/

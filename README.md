@@ -5,6 +5,7 @@
 ## 更新履歴
 - 2022/09/12: 本ベースラインを公開しました。
 - 2022/11/05: Dockerイメージの投稿要件に含まれる`~/submission.sh`を追加しました。
+- 2022/11/17: Dockerfileに、トークナイザの事前ダウンロードコードを追記しました。
 
 
 ## 目次
@@ -71,8 +72,6 @@ $ cd AIO3_FiD_baseline
 # 生成型 Reader
 - generators/:
   - fusion_in_decoder/:                FiD モジュール
-  
-- submission.sh:                       提出用推論スクリプト
 ```
 
 
@@ -384,7 +383,12 @@ __Accuracy__
 ## submission.sh について
 最終的に提出を行う Docker イメージ内で、与えられた質問データに対して推論を行うスクリプトです。
 
-提出する Docker イメージの要件については、[こちら](https://sites.google.com/view/project-aio/competition2/how-to-use-leaderboard) をご参照ください。
+このスクリプトを実行する際には、`Dockerfile`に下記のコードを記載した上で Docker イメージのビルドを行ってください。
+```bash
+ENV TRANSFORMERS_OFFLINE=1
+```
+
+その他、提出する Docker イメージの要件や、このスクリプトの実行方法については、[システム最終投稿の方法](https://sites.google.com/view/project-aio/competition3/how-to-submit) をご参照ください。
 
 `submission.sh`は、以下の内容で構成されています：
 - `BIENCODER_FILE`：Retriever(DPR) モデルファイルのパス
