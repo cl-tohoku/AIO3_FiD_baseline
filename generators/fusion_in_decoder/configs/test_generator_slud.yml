@@ -4,7 +4,7 @@ seed: 2022
 
 # dataset
 train_data: "/app/datasets/fusion_in_decoder/DprRetrieved/train.jsonl"
-eval_data: "/app/datasets/fusion_in_decoder/DprRetrieved/test.jsonl"
+eval_data: "/app/datasets/fusion_in_decoder/DprRetrieved/dev.jsonl"
 checkpoint_dir: "models_and_results/baseline"
 
 # model 

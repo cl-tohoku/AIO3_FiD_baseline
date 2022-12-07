@@ -6,6 +6,7 @@
 - 2022/09/12: 本ベースラインを公開しました。
 - 2022/11/05: Dockerイメージの投稿要件に含まれる`~/submission.sh`を追加しました。
 - 2022/11/17: Dockerfileに、トークナイザの事前ダウンロードコードを追記しました。また、ベースイメージを変更しました。
+- 2022/12/07: DPR および FiD の学習済みモデルの提供を終了しました。従って、ダウンロードスクリプトを実行してもモデルのダウンロードは行えません。
 
 
 ## 目次
@@ -155,6 +156,8 @@ $ bash scripts/download_data.sh $datasets_dir
 必要に応じてダウンロードし、解凍して下さい。
 - なお、Retriever の学習、および文書集合（Wikipedia）のエンコード方法の詳細については、[retrievers/AIO3_DPR/README.md](retrievers/AIO3_DPR/README.md)を参照して下さい。
 
+（注意事項：学習済みモデルの提供は 2022/12/07 をもって終了いたしました。そのため、こちらのスクリプトを実行してもモデルのダウンロードは行えません。）
+
 ```bash
 $ save_dir="model/baseline"
 $ targets="retriever,embeddings"  # {retriever, embeddings} からダウンロード対象を「スペースなしの ',' 区切り」で指定して下さい
@@ -301,9 +304,11 @@ $ cd generators/fusion_in_decoder
 ```
 
 ### 学習済みモデルのダウンロード
-本節では既に学習された Reader のダウンロード方法について説明します。
+- 本節では既に学習された Reader のダウンロード方法について説明します。
 必要に応じてダウンロードし、解凍して下さい。<br>
-また、Reader (Fusion-in-Decoder) の学習については、[generators/fusion_in_decoder/README.md](generators/fusion_in_decoder/README.md)を参照して下さい。
+- また、Reader (Fusion-in-Decoder) の学習については、[generators/fusion_in_decoder/README.md](generators/fusion_in_decoder/README.md)を参照して下さい。
+
+（注意事項：学習済みモデルの提供は 2022/12/07 をもって終了いたしました。そのため、こちらのスクリプトを実行してもモデルのダウンロードは行えません。）
 
 ```bash
 $ fid_save_dir="models_and_results/baseline"
@@ -361,7 +366,7 @@ __Accuracy__
 
 ```bash
 # 出力例
-2022-mm-dd hh:mm:ss #106 INFO __main__ :::  EM 0.559000, Total number of example 1000
+202y-mm-dd hh:mm:ss #106 INFO __main__ :::  EM 0.559000, Total number of example 1000
 ```
 
 - 関連文書の上位 60 件の文書を用いた時の、リーダーボード投稿用評価データに対する解答出力の例
